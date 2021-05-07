@@ -41,6 +41,15 @@ Usage
 
           curl -X POST http://127.0.0.1:8080/predictions/yolo5 -T kitten.jpg
 
+Inference with gRPC
+==========
+   1. Install dependencies (see no. 1, 2 in https://github.com/pytorch/serve#install-torchserve-and-torch-model-archiver)
+   2. Install gRPC Python dependencies
+      pip install -U grpcio protobuf grpcio-tools
+   3. Generate inference client using proto files
+      python -m grpc_tools.protoc --proto_path=./proto/ --python_out=./proto/ --grpc_python_out=./proto/ ./proto/inference.proto ./proto/management.proto
+   4. Run inference using a sample client 
+      python proto/torchserve_grpc_client.py infer yolo5 examples/image_classifier/kitten.jpg
 Performance
 ===========
 
