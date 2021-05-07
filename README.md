@@ -49,7 +49,7 @@ Inference with gRPC
    3. Generate inference client using proto files
       python -m grpc_tools.protoc --proto_path=./proto/ --python_out=./proto/ --grpc_python_out=./proto/ ./proto/inference.proto ./proto/management.proto
    4. Run inference using a sample client 
-      python proto/torchserve_grpc_client.py infer yolo5 examples/image_classifier/kitten.jpg
+      python proto/torchserve_grpc_client.py infer yolo5 kitten.jpg
 Performance
 ===========
 
